@@ -1,0 +1,70 @@
+cabal-version:      2.4
+name:               wx-hello
+version:            0.1.0.0
+synopsis:           Hello World, using wxHaskell
+
+-- A longer description of the package.
+-- description:
+homepage:
+
+-- A URL where users can report bugs.
+-- bug-reports:
+license:            NONE
+author:             Magnus Gustafsson
+maintainer:         magnus.gustafsson@mindtrain.org
+
+-- A copyright notice.
+-- copyright:
+category:           Graphics
+extra-source-files: CHANGELOG.md
+
+library
+    exposed-modules:  MyLib
+
+    -- Modules included in this library but not exported.
+    -- other-modules:
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:    base ^>=4.14.1.0,
+                      wx,
+                      wxdirect,
+                      wxc,
+                      wxcore,
+                      wx
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+executable wx-hello
+    main-is:          Main.hs
+
+    -- Modules included in this executable, other than Main.
+    -- other-modules:
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:
+        base ^>=4.14.1.0,
+        wx,
+        wx-hello
+    -- By default GHC builds applications that open a console window
+    -- when they start. If you want to build a GUI-only application,
+    -- with no console window, use the flag -optl-mwindows in the link
+    -- step.
+    --
+    -- Warning: Windows GUI-only programs have no stdin, stdout or
+    -- stderr so using the ordinary Haskell input/output functions
+    -- will cause your program to fail with an IO exception.
+    --
+    -- However using Debug.Trace.trace is alright because it uses
+    -- Windows debugging output support rather than stderr.
+    ghc-options: -Wall -optl-mwindows
+    hs-source-dirs:   app
+    default-language: Haskell2010
+
+test-suite wx-hello-test
+    default-language: Haskell2010
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          MyLibTest.hs
+    build-depends:    base ^>=4.14.1.0

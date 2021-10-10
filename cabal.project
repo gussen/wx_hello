@@ -1,0 +1,10 @@
+packages:
+  ./
+  ../wxHaskell/wxdirect/
+  ../wxHaskell/wxc/
+  ../wxHaskell/wxcore/
+  ../wxHaskell/wx/
+  ../wxHaskell/samples/wxcore/
+  ../wxHaskell/samples/wx/
+  ../wxHaskell/samples/contrib/
+  ../wxHaskell/samples/test/
